@@ -25,7 +25,7 @@ namespace NetworkAdapter
                 gatewayTextBox.Text = adapter.Gateway;
                 dnsTextBox.Text = adapter.DNSservers;
 
-                bool dhcpEnabled = netAdapter.IsDHCPEnabled(adapter.Name);
+                bool dhcpEnabled = netAdapter.IsDHCPEnabled(adapter);
                 if (dhcpEnabled)
                 {
                     dhcpLabel.Text = "DHCP Enabled";

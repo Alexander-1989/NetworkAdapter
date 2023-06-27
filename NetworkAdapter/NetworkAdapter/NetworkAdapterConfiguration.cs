@@ -84,10 +84,10 @@ namespace NetworkAdapter.NetService
             }
         }
 
-        public bool IsDHCPEnabled(string name)
+        public bool IsDHCPEnabled(NetAdapter adapter)
         {
             bool result = false;
-            string query = $"SELECT * FROM Win32_NetworkAdapterConfiguration WHERE Description = '{name}' AND IPEnabled = True";
+            string query = $"SELECT * FROM Win32_NetworkAdapterConfiguration WHERE Description = '{adapter.Name}' AND IPEnabled = True";
             using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
             {
                 using (ManagementObjectCollection managementCollection = searcher.Get())
