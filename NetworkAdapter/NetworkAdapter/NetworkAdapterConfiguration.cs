@@ -55,8 +55,7 @@ namespace NetworkAdapter.NetService
                     {
                         using (ManagementBaseObject setDNS = managementObject.GetMethodParameters("SetDNSServerSearchOrder"))
                         {
-                            string[] ip = dnsServers?.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-                            setDNS["DNSServerSearchOrder"] = ip;
+                            setDNS["DNSServerSearchOrder"] = dnsServers?.Split(separator, StringSplitOptions.RemoveEmptyEntries);
                             managementObject.InvokeMethod("SetDNSServerSearchOrder", setDNS, null);
                         }
                         break;
