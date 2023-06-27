@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extension.cs" />
     <Compile Include="NetworkAdapter\NetAdapter.cs" />
     <Compile Include="NetworkAdapter\NetworkAdapterConfiguration.cs" />
     <Compile Include="Form1.cs">

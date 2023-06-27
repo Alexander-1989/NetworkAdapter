@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Management;
 using System.Collections.Generic;
 
@@ -8,6 +7,7 @@ namespace NetworkAdapter.NetService
     internal class NetworkAdapterConfiguration
     {
         private readonly char[] separator = new char[] { ',', ';', ' ' };
+        private readonly string[] empty = new string[] { "" };
 
         public void SetIp(string name, string ipAddress, string subnetMask, string gateway)
         {
@@ -73,10 +73,10 @@ namespace NetworkAdapter.NetService
                 {
                     foreach (ManagementObject managementObject in managementCollection)
                     {
-                        adapter.IpAddress = managementObject["IPAddress"] != null ? ((string[])managementObject["IPAddress"])[0] : "";
-                        adapter.SubnetMask = managementObject["IPSubnet"] != null ? ((string[])managementObject["IPSubnet"])[0] : "";
-                        adapter.Gateway = managementObject["DefaultIPGateway"] != null ? ((string[])managementObject["DefaultIPGateway"])[0] : "";
-                        adapter.DNSservers = managementObject["DNSServerSearchOrder"] != null ? string.Join("; ", (string[])managementObject["DNSServerSearchOrder"]) : "";
+                        adapter.IpAddress = ((string[])managementObject["IPAddress"] ?? empty).First();
+                        adapter.SubnetMask = ((string[])managementObject["IPSubnet"] ?? empty).First();
+                        adapter.Gateway = ((string[])managementObject["DefaultIPGateway"] ?? empty).First();
+                        adapter.DNSservers = string.Join("; ", (string[])managementObject["DNSServerSearchOrder"] ?? empty);
                         break;
                     } 
                 }
