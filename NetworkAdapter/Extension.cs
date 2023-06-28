@@ -1,10 +1,13 @@
-﻿namespace NetworkAdapter
+﻿using System.Collections.Generic;
+
+namespace NetworkAdapter
 {
     internal static class Extension
     {
-        public static T First<T>(this T[] collection)
+        public static T First<T>(this IEnumerable<T> collection)
         {
-            return collection?.Length > 0 ? collection[0] : default(T);
+            IEnumerator<T> enumerator = collection?.GetEnumerator();
+            return enumerator == null || !enumerator.MoveNext() ? default : enumerator.Current;
         }
     }
 }
