@@ -73,9 +73,9 @@ namespace NetworkAdapter.NetService
                 {
                     foreach (ManagementObject managementObject in managementCollection)
                     {
-                        adapter.IpAddress = ((string[])managementObject["IPAddress"] ?? empty).First();
-                        adapter.SubnetMask = ((string[])managementObject["IPSubnet"] ?? empty).First();
-                        adapter.Gateway = ((string[])managementObject["DefaultIPGateway"] ?? empty).First();
+                        adapter.IpAddress = ((string[])managementObject["IPAddress"]).First();
+                        adapter.SubnetMask = ((string[])managementObject["IPSubnet"]).First();
+                        adapter.Gateway = ((string[])managementObject["DefaultIPGateway"]).First();
                         adapter.DNSservers = string.Join("; ", (string[])managementObject["DNSServerSearchOrder"] ?? empty);
                         break;
                     } 
