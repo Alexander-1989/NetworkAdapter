@@ -138,6 +138,7 @@ namespace NetworkAdapter
             this.ipButton.Name = "ipButton";
             this.ipButton.Size = new System.Drawing.Size(230, 23);
             this.ipButton.TabIndex = 5;
+            this.ipButton.Text = "Set IP";
             this.ipButton.UseVisualStyleBackColor = true;
             this.ipButton.Click += new System.EventHandler(this.IpButton_Click);
             // 
@@ -186,6 +187,7 @@ namespace NetworkAdapter
             this.dnsButton.Name = "dnsButton";
             this.dnsButton.Size = new System.Drawing.Size(230, 23);
             this.dnsButton.TabIndex = 6;
+            this.dnsButton.Text = "Set DNS";
             this.dnsButton.UseVisualStyleBackColor = true;
             this.dnsButton.Click += new System.EventHandler(this.DnsButton_Click);
             // 

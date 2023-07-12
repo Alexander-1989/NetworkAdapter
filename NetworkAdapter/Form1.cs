@@ -24,8 +24,9 @@ namespace NetworkAdapter
                 maskTextBox.Text = adapter.SubnetMask;
                 gatewayTextBox.Text = adapter.Gateway;
                 dnsTextBox.Text = adapter.DNSservers;
+                bool dhcpEnabled = netAdapter.IsDHCPEnabled(adapter);
 
-                if (netAdapter.IsDHCPEnabled(adapter))
+                if (dhcpEnabled)
                 {
                     dhcpLabel.Text = "DHCP Enabled";
                     dhcpLabel.BackColor = Color.ForestGreen;
@@ -35,14 +36,14 @@ namespace NetworkAdapter
                     dhcpLabel.Text = "DHCP Disabled";
                     dhcpLabel.BackColor = Color.Red;
                 }
+
+                checkBox1.Checked = dhcpEnabled;
+                checkBox2.Checked = true;
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            checkBox1.Checked = true;
-            checkBox2.Checked = true;
-
             comboBox1.Items.AddRange(netAdapter.GetAdapters());
 
             int countItems = comboBox1.Items.Count;

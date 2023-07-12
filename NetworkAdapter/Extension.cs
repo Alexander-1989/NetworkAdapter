@@ -7,7 +7,7 @@ namespace NetworkAdapter
         public static T First<T>(this IEnumerable<T> collection)
         {
             IEnumerator<T> enumerator = collection?.GetEnumerator();
-            return enumerator == null || !enumerator.MoveNext() ? default : enumerator.Current;
+            return enumerator != null && enumerator.MoveNext() ? enumerator.Current : default;
         }
     }
 }
