@@ -49,10 +49,6 @@ namespace NetworkAdapter
             int countItems = comboBox1.Items.Count;
             if (countItems > 0)
             {
-                if (countItems == 1)
-                {
-                    comboBox1.DropDownHeight = 1;
-                }
                 comboBox1.SelectedIndex = 0;
             }
         }

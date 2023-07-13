@@ -85,7 +85,6 @@ namespace NetworkAdapter.NetService
 
         public bool IsDHCPEnabled(NetAdapter adapter)
         {
-            bool result = false;
             string query = $"SELECT * FROM Win32_NetworkAdapterConfiguration WHERE Description = '{adapter.Name}' AND IPEnabled = True";
             using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
             {
@@ -93,12 +92,11 @@ namespace NetworkAdapter.NetService
                 {
                     foreach (ManagementObject managementObject in managementCollection)
                     {
-                        result = (bool)managementObject["DHCPEnabled"];
-                        break;
+                        return (bool)managementObject["DHCPEnabled"];
                     }
                 }
             }
-            return result;
+            return false;
         }
 
         public NetAdapter[] GetAdapters()
