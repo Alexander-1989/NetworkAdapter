@@ -92,7 +92,7 @@ namespace NetworkAdapter.NetService
                 {
                     foreach (ManagementObject managementObject in managementCollection)
                     {
-                        return (bool)managementObject["DHCPEnabled"];
+                        return Convert.ToBoolean(managementObject["DHCPEnabled"]);
                     }
                 }
             }
