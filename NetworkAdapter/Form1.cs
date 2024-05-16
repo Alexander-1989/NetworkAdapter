@@ -13,6 +13,7 @@ namespace NetworkAdapter
             comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
         }
 
+        private readonly char[] separator = new char[] { ',', ';', ' ', '\n', '\t' };
         private readonly NetworkAdapterConfiguration netAdapter = new NetworkAdapterConfiguration();
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,7 +107,8 @@ namespace NetworkAdapter
                 }
                 else
                 {
-                    netAdapter.SetDns(item.Name, dnsRichTextBox.Text);
+                    string[] dnsServers = dnsRichTextBox.Text.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                    netAdapter.SetDns(item.Name, dnsServers);
                 }
             }
         }

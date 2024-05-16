@@ -44,7 +44,7 @@ namespace NetworkAdapter.NetService
             }
         }
 
-        public void SetDns(string name, string dnsServers)
+        public void SetDns(string name, string[] dnsServers)
         {
             string query = $"SELECT * FROM Win32_NetworkAdapterConfiguration WHERE Description = '{name}' AND IPEnabled = True";
             using (ManagementObjectSearcher searcher = new ManagementObjectSearcher(query))
@@ -55,7 +55,7 @@ namespace NetworkAdapter.NetService
                     {
                         using (ManagementBaseObject setDNS = managementObject.GetMethodParameters("SetDNSServerSearchOrder"))
                         {
-                            setDNS["DNSServerSearchOrder"] = dnsServers?.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                            setDNS["DNSServerSearchOrder"] = dnsServers;
                             managementObject.InvokeMethod("SetDNSServerSearchOrder", setDNS, null);
                         }
                         break;
