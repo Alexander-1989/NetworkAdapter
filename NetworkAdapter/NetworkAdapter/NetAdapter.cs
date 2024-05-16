@@ -7,7 +7,7 @@
         public string IpAddress { get; set; }
         public string SubnetMask { get; set; }
         public string Gateway { get; set; }
-        public string DNSservers { get; set; }
+        public string[] DNSservers { get; set; }
 
         public NetAdapter(string name, string connectionID)
         {

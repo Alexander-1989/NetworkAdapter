@@ -6,8 +6,8 @@ namespace NetworkAdapter.NetService
 {
     internal class NetworkAdapterConfiguration
     {
-        private readonly char[] separator = new char[] { ',', ';', ' ' };
-        private readonly string[] empty = new string[] { "" };
+        private readonly char[] separator = new char[] { ',', ';', ' ', '\n', '\t' };
+        private readonly string[] emptyArray = new string[0];
 
         public void SetIp(string name, string ipAddress, string subnetMask, string gateway)
         {
@@ -76,7 +76,7 @@ namespace NetworkAdapter.NetService
                         adapter.IpAddress = ((string[])managementObject["IPAddress"]).First();
                         adapter.SubnetMask = ((string[])managementObject["IPSubnet"]).First();
                         adapter.Gateway = ((string[])managementObject["DefaultIPGateway"]).First();
-                        adapter.DNSservers = string.Join("; ", (string[])managementObject["DNSServerSearchOrder"] ?? empty);
+                        adapter.DNSservers = (string[])managementObject["DNSServerSearchOrder"] ?? emptyArray;
                         break;
                     } 
                 }
@@ -108,7 +108,7 @@ namespace NetworkAdapter.NetService
             {
                 using (ManagementObjectCollection managementCollection = management.Get())
                 {
-                    foreach (ManagementBaseObject managementObject in managementCollection)
+                    foreach (ManagementObject managementObject in managementCollection)
                     {
                         adapters.Add(new NetAdapter($"{managementObject["Name"]}", $"{managementObject["NetConnectionID"]}"));
                     }

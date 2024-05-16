@@ -23,7 +23,7 @@ namespace NetworkAdapter
                 ipTextBox.Text = adapter.IpAddress;
                 maskTextBox.Text = adapter.SubnetMask;
                 gatewayTextBox.Text = adapter.Gateway;
-                dnsTextBox.Text = adapter.DNSservers;
+                dnsRichTextBox.Text = string.Join("\n", adapter.DNSservers);
                 bool dhcpEnabled = netAdapter.IsDHCPEnabled(adapter);
 
                 if (dhcpEnabled)
@@ -38,7 +38,7 @@ namespace NetworkAdapter
                 }
 
                 checkBox1.Checked = dhcpEnabled;
-                checkBox2.Checked = true;
+                checkBox2.Checked = dhcpEnabled;
             }
         }
 
@@ -106,7 +106,7 @@ namespace NetworkAdapter
                 }
                 else
                 {
-                    netAdapter.SetDns(item.Name, dnsTextBox.Text);
+                    netAdapter.SetDns(item.Name, dnsRichTextBox.Text);
                 }
             }
         }

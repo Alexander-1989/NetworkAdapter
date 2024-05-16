@@ -42,10 +42,10 @@ namespace NetworkAdapter
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dnsLabel = new System.Windows.Forms.Label();
-            this.dnsTextBox = new System.Windows.Forms.TextBox();
             this.dnsButton = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.dhcpLabel = new System.Windows.Forms.Label();
+            this.dnsRichTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -155,11 +155,11 @@ namespace NetworkAdapter
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dnsRichTextBox);
             this.groupBox3.Controls.Add(this.dnsLabel);
-            this.groupBox3.Controls.Add(this.dnsTextBox);
             this.groupBox3.Location = new System.Drawing.Point(12, 293);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(230, 60);
+            this.groupBox3.Size = new System.Drawing.Size(230, 83);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "DNS";
@@ -173,17 +173,9 @@ namespace NetworkAdapter
             this.dnsLabel.TabIndex = 2;
             this.dnsLabel.Text = "Preferred Servers";
             // 
-            // dnsTextBox
-            // 
-            this.dnsTextBox.Location = new System.Drawing.Point(6, 32);
-            this.dnsTextBox.Name = "dnsTextBox";
-            this.dnsTextBox.Size = new System.Drawing.Size(218, 20);
-            this.dnsTextBox.TabIndex = 1;
-            this.dnsTextBox.Text = "\r\n";
-            // 
             // dnsButton
             // 
-            this.dnsButton.Location = new System.Drawing.Point(12, 359);
+            this.dnsButton.Location = new System.Drawing.Point(12, 382);
             this.dnsButton.Name = "dnsButton";
             this.dnsButton.Size = new System.Drawing.Size(230, 23);
             this.dnsButton.TabIndex = 6;
@@ -211,11 +203,19 @@ namespace NetworkAdapter
             this.dhcpLabel.TabIndex = 7;
             this.dhcpLabel.Text = "DHCP Enabled";
             // 
+            // dnsRichTextBox
+            // 
+            this.dnsRichTextBox.Location = new System.Drawing.Point(6, 32);
+            this.dnsRichTextBox.Name = "dnsRichTextBox";
+            this.dnsRichTextBox.Size = new System.Drawing.Size(218, 45);
+            this.dnsRichTextBox.TabIndex = 3;
+            this.dnsRichTextBox.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 391);
+            this.ClientSize = new System.Drawing.Size(256, 412);
             this.Controls.Add(this.dhcpLabel);
             this.Controls.Add(this.dnsButton);
             this.Controls.Add(this.groupBox3);
@@ -255,10 +255,10 @@ namespace NetworkAdapter
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label dnsLabel;
-        private System.Windows.Forms.TextBox dnsTextBox;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button ipButton;
         private System.Windows.Forms.Button dnsButton;
         private System.Windows.Forms.Label dhcpLabel;
+        private System.Windows.Forms.RichTextBox dnsRichTextBox;
     }
 }
