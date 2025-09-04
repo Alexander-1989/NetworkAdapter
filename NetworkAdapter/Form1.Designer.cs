@@ -41,11 +41,11 @@ namespace NetworkAdapter
             this.ipButton = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dnsRichTextBox = new System.Windows.Forms.RichTextBox();
             this.dnsLabel = new System.Windows.Forms.Label();
             this.dnsButton = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.dhcpLabel = new System.Windows.Forms.Label();
-            this.dnsRichTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -56,7 +56,7 @@ namespace NetworkAdapter
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 56);
+            this.groupBox1.Size = new System.Drawing.Size(301, 56);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Network Adapter Name";
@@ -66,7 +66,7 @@ namespace NetworkAdapter
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(6, 19);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(218, 21);
+            this.comboBox1.Size = new System.Drawing.Size(289, 21);
             this.comboBox1.TabIndex = 0;
             // 
             // groupBox2
@@ -79,7 +79,7 @@ namespace NetworkAdapter
             this.groupBox2.Controls.Add(this.ipTextBox);
             this.groupBox2.Location = new System.Drawing.Point(12, 90);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(230, 138);
+            this.groupBox2.Size = new System.Drawing.Size(301, 138);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "IP";
@@ -97,7 +97,7 @@ namespace NetworkAdapter
             // 
             this.gatewayTextBox.Location = new System.Drawing.Point(6, 110);
             this.gatewayTextBox.Name = "gatewayTextBox";
-            this.gatewayTextBox.Size = new System.Drawing.Size(218, 20);
+            this.gatewayTextBox.Size = new System.Drawing.Size(289, 20);
             this.gatewayTextBox.TabIndex = 5;
             // 
             // subnetLabel
@@ -113,7 +113,7 @@ namespace NetworkAdapter
             // 
             this.maskTextBox.Location = new System.Drawing.Point(6, 71);
             this.maskTextBox.Name = "maskTextBox";
-            this.maskTextBox.Size = new System.Drawing.Size(218, 20);
+            this.maskTextBox.Size = new System.Drawing.Size(289, 20);
             this.maskTextBox.TabIndex = 3;
             // 
             // ipLabel
@@ -129,14 +129,14 @@ namespace NetworkAdapter
             // 
             this.ipTextBox.Location = new System.Drawing.Point(6, 32);
             this.ipTextBox.Name = "ipTextBox";
-            this.ipTextBox.Size = new System.Drawing.Size(218, 20);
+            this.ipTextBox.Size = new System.Drawing.Size(289, 20);
             this.ipTextBox.TabIndex = 1;
             // 
             // ipButton
             // 
             this.ipButton.Location = new System.Drawing.Point(12, 234);
             this.ipButton.Name = "ipButton";
-            this.ipButton.Size = new System.Drawing.Size(230, 23);
+            this.ipButton.Size = new System.Drawing.Size(301, 23);
             this.ipButton.TabIndex = 5;
             this.ipButton.Text = "Set IP";
             this.ipButton.UseVisualStyleBackColor = true;
@@ -159,10 +159,18 @@ namespace NetworkAdapter
             this.groupBox3.Controls.Add(this.dnsLabel);
             this.groupBox3.Location = new System.Drawing.Point(12, 293);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(230, 83);
+            this.groupBox3.Size = new System.Drawing.Size(301, 83);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "DNS";
+            // 
+            // dnsRichTextBox
+            // 
+            this.dnsRichTextBox.Location = new System.Drawing.Point(6, 32);
+            this.dnsRichTextBox.Name = "dnsRichTextBox";
+            this.dnsRichTextBox.Size = new System.Drawing.Size(289, 45);
+            this.dnsRichTextBox.TabIndex = 3;
+            this.dnsRichTextBox.Text = "";
             // 
             // dnsLabel
             // 
@@ -177,7 +185,7 @@ namespace NetworkAdapter
             // 
             this.dnsButton.Location = new System.Drawing.Point(12, 382);
             this.dnsButton.Name = "dnsButton";
-            this.dnsButton.Size = new System.Drawing.Size(230, 23);
+            this.dnsButton.Size = new System.Drawing.Size(301, 23);
             this.dnsButton.TabIndex = 6;
             this.dnsButton.Text = "Set DNS";
             this.dnsButton.UseVisualStyleBackColor = true;
@@ -203,19 +211,11 @@ namespace NetworkAdapter
             this.dhcpLabel.TabIndex = 7;
             this.dhcpLabel.Text = "DHCP Enabled";
             // 
-            // dnsRichTextBox
-            // 
-            this.dnsRichTextBox.Location = new System.Drawing.Point(6, 32);
-            this.dnsRichTextBox.Name = "dnsRichTextBox";
-            this.dnsRichTextBox.Size = new System.Drawing.Size(218, 45);
-            this.dnsRichTextBox.TabIndex = 3;
-            this.dnsRichTextBox.Text = "";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 412);
+            this.ClientSize = new System.Drawing.Size(330, 412);
             this.Controls.Add(this.dhcpLabel);
             this.Controls.Add(this.dnsButton);
             this.Controls.Add(this.groupBox3);

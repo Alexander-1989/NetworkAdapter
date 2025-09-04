@@ -17,7 +17,7 @@
 
         public override string ToString()
         {
-            return NetConnectionID + $" ({Name})";
+            return Name;
         }
     }
 }

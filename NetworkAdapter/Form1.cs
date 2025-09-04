@@ -11,21 +11,24 @@ namespace NetworkAdapter
         {
             InitializeComponent();
             comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
+            comboBox1.KeyPress += (s, e) => e.Handled = true;
         }
 
-        private readonly char[] separator = new char[] { ',', ';', ' ', '\n', '\t' };
         private readonly NetworkAdapterConfiguration netAdapter = new NetworkAdapterConfiguration();
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem is NetAdapter adapter)
             {
-                netAdapter.GetIpMaskGatewayDns(adapter);
                 ipTextBox.Text = adapter.IpAddress;
                 maskTextBox.Text = adapter.SubnetMask;
                 gatewayTextBox.Text = adapter.Gateway;
-                dnsRichTextBox.Text = string.Join("\n", adapter.DNSservers);
                 bool dhcpEnabled = netAdapter.IsDHCPEnabled(adapter);
+
+                if (adapter.DNSservers != null)
+                {
+                    dnsRichTextBox.Text = string.Join("\n", adapter.DNSservers);
+                }
 
                 if (dhcpEnabled)
                 {
@@ -39,7 +42,7 @@ namespace NetworkAdapter
                 }
 
                 checkBox1.Checked = dhcpEnabled;
-                checkBox2.Checked = dhcpEnabled;
+                checkBox2.Checked = true;
             }
         }
 
@@ -84,31 +87,30 @@ namespace NetworkAdapter
 
         private void IpButton_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem is NetAdapter item)
+            if (comboBox1.SelectedItem is NetAdapter adapter)
             {
                 if (checkBox1.Checked)
                 {
-                    netAdapter.SetIp(item.Name, null, null, null);
+                    netAdapter.SetIp(adapter, null, null, null);
                 }
                 else
                 {
-                    netAdapter.SetIp(item.Name, ipTextBox.Text, maskTextBox.Text, gatewayTextBox.Text);
+                    netAdapter.SetIp(adapter, ipTextBox.Text, maskTextBox.Text, gatewayTextBox.Text);
                 }
             }
         }
 
         private void DnsButton_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem is NetAdapter item)
+            if (comboBox1.SelectedItem is NetAdapter adapter)
             {
                 if (checkBox2.Checked)
                 {
-                    netAdapter.SetDns(item.Name, null);
+                    netAdapter.SetDns(adapter, null);
                 }
                 else
                 {
-                    string[] dnsServers = dnsRichTextBox.Text.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-                    netAdapter.SetDns(item.Name, dnsServers);
+                    netAdapter.SetDns(adapter, dnsRichTextBox.Text);
                 }
             }
         }
